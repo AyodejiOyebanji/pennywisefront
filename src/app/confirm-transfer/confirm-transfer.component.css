@@ -1,0 +1,25 @@
+.body{
+  background-color: #FAFAFB;
+  height:100vh;
+  width:100%;
+}
+.confirmDiv{
+  margin-top: 10vh;
+}
+.text_one{
+  font-size: 3vh;;
+}
+.amount{
+  background-color: rgb(14, 14, 199);
+  width: 30%;
+  height: 5vh;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.nextBtn{
+  background-color: blue;
+  color: white;
+}

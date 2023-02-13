@@ -1,0 +1,86 @@
+<!-- step one starts here -->
+<div class="body">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <h1>Transfer Money | Others</h1>
+      <div class="col-sm-12 col-md-12 col-lg-6">
+
+
+
+        <div>
+          <div class="accountDetails">
+            <h4 class="display-4 text-muted text-center">Oyebanji Ayodeji</h4>
+            <p class="text-muted text-center">1234567890</p>
+          </div>
+          <div class="alert alert-danger" *ngIf="errorMsg">
+            {{ errorMsg }}
+
+          </div>
+
+          <div class="mt-5">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>#0.00</mat-label>
+              <input
+                class="w-100"
+                matInput
+                placeholder="#"
+                type="number"
+                 [(ngModel)]="repamount"
+              />
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Account number</mat-label>
+              <input
+                class="w-100"
+                matInput
+                type="Account number"
+                [(ngModel)]="repAccNum"
+                (input)="searchAccount()"
+              />
+            </mat-form-field>
+            <div class="spinner-border" *ngIf="loading"  role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+           <div>
+
+
+            <p *ngIf="getReceiver; else elseblock" class="text-center text-muted" >
+              {{getReceiver.first_name}}  {{getReceiver.last_name}}
+
+
+
+            </p>
+            <ng-template #elseblock>
+          <p class="text-center text-danger">{{accountMsg}}</p>
+
+            </ng-template>
+          </div>
+
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Reason</mat-label>
+              <input class="w-100" matInput  [(ngModel)]="reason"  >
+            </mat-form-field>
+
+          </div>
+          <!-- (blur)="blurEvent($event)" -->
+          <div class="d-flex justify-content-center">
+            <button class="nextBtn" mat-flat-button  (click)="transfer()">
+              TRANSFER
+              <div class="spinner-border" *ngIf="loading"  role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="confirmsec">
+
+
+  </div>
+</div>
