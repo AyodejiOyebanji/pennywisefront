@@ -109,17 +109,17 @@
                         <div class="mt-2 text-light">Fund Account</div>
                       </div>
 
-                      <div>
+                      <div routerLink="/dashboard/transfer">
                         <span
                           class="material-symbols-outlined p-2 text-light"
-                          routerLink="/dashboard/transfer"
+                          
                         >
                           transform
                         </span>
                         <div class="text-light">Transfer</div>
                       </div>
 
-                      <div>
+                      <div  routerLink="/dashboard/history">
                         <span class="material-symbols-outlined p-2 text-light">
                           manage_history
                         </span>
@@ -211,29 +211,33 @@
 
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8">
-              <div class="chart" id="divAreaChart"></div>
+              
+              <div class="chart" >
+                 <h1 class="display-6 text-center">History</h1>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Description</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">ref</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of history.slice(-1)">
+                      <th>{{ item.description }}</th>
+                      <th>#{{ item.amount }}:00</th>
+                      <th>{{ item.date | date }}</th>
+      
+                      <th>{{ item.ref_no }}</th>
+                    </tr>
+                  </tbody>
+                </table>
+
+               </div> 
             </div>
           </div>
-          <h1 class="display-6 text-center">History</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Description</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Date</th>
-                <th scope="col">ref</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of history">
-                <th>{{ item.description }}</th>
-                <th>#{{ item.amount }}:00</th>
-                <th>{{ item.date | date }}</th>
-
-                <th>{{ item.ref_no }}</th>
-              </tr>
-            </tbody>
-          </table>
+         
         </div>
       </div>
     </mat-drawer-container>

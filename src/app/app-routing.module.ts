@@ -17,6 +17,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -79,6 +80,11 @@ const routes: Routes = [
         path: 'goalfunded',
         component: GoalComponent,
         title: 'Goal Funded',
+      },
+      {
+        path: 'history',
+        component: HistoryComponent,
+        title: 'History',
       },
     ],
   },

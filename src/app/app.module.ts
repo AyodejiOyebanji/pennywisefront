@@ -31,6 +31,7 @@ import { ConfirmTransferComponent } from './confirm-transfer/confirm-transfer.co
 import { GoalComponent } from './goal/goal.component'
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     TransferComponent,
     ConfirmTransferComponent,
     GoalComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
