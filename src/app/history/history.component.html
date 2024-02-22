@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      
+      <div class="chart" >
+         <h1 class="display-6 text-center">History</h1>
+        <table class="table">
+          <thead>
+            <tr>
+                <th scope="col">S/N</th>
+              <th scope="col">Description</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Date</th>
+              <th scope="col">ref</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of history; let i=index">
+                <th>{{ i+1 }}</th>
+              <th>{{ item.description }}</th>
+              <th>#{{ item.amount }}:00</th>
+              <th>{{ item.date| date:'medium'   }}</th>
+
+              <th>{{ item.ref_no }}</th>
+            </tr>
+          </tbody>
+        </table>
+
+       </div> 
+    </div>
+  </div>

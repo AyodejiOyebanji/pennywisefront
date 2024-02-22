@@ -46,15 +46,7 @@ export class PDashboardComponent implements OnInit {
     if (!this.usertoken) {
       this.router.navigate(['/login']);
     }
-    this.userService.dashboard(this.usertoken).subscribe((res) => {
-      this.response = res;
-      console.log(this.response);
-      if (this.response.status) {
-        this.userDetails = this.response.result;
-        this.history = this.response.result.history;
-      }
-    });
-
+  
     this.userEmail = JSON.parse(localStorage['email']);
     //GET THE USER'S GOAL
     this.userService.getAllGoal(this.userEmail).subscribe((res) => {
@@ -64,7 +56,7 @@ export class PDashboardComponent implements OnInit {
         this.userGoals = this.allGoalRes.allGoal;
       }
     });
-
+    this.fetchUserDetails()
     this.currentTime = new Date().getHours();
 
     if (this.currentTime < 12) {
@@ -74,6 +66,17 @@ export class PDashboardComponent implements OnInit {
     } else if (this.currentTime >= 17 && this.currentTime <= 24) {
       this.greetings = 'Good Evening';
     }
+  }
+  fetchUserDetails(){
+    this.userService.dashboard(this.usertoken).subscribe((res) => {
+      this.response = res;
+      console.log(this.response);
+      if (this.response.status) {
+        this.userDetails = this.response.result;
+        this.history = this.response.result.history;
+      }
+    });
+
   }
   drawChartPie() {
     // Create the data table.
@@ -171,7 +174,9 @@ export class PDashboardComponent implements OnInit {
          this.responsetwo = res
          if(this.responsetwo.status){
           this._snackBar.open(this.responsetwo.message, 'Close');
-          this.router.navigate(["/goalfunded"])
+          this.fetchUserDetails()
+          // this.router.navigate(["/goalfunded"])
+          this.eachGoalAmount=''
          }
 
 
@@ -191,8 +196,10 @@ export class PDashboardComponent implements OnInit {
       this.userService.fundGoal(eachGoalObj, goalId).subscribe((res) => {
         this.responsetwo = res
         if(this.responsetwo.status){
+           this.fetchUserDetails()
+           this.eachGoalAmount=''
          this._snackBar.open(this.responsetwo.message, 'Close');
-         this.router.navigate(["dashboard/goalfunded"])
+        //  this.router.navigate(["dashboard/goalfunded"])
         }
       });
     }
