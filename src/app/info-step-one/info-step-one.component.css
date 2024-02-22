@@ -29,7 +29,11 @@ height: 4vh;
   height: 3vh;
 }
 .nextBtn{
-  width: 90%;
+  width: 100% !important;
   background-color: blue;
   color: white;
+}
+
+.center-text {
+  text-align: center;
 }
